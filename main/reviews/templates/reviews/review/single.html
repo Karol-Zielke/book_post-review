@@ -1,0 +1,9 @@
+{% extends "reviews/base.html" %}
+{% block title %}{{ review.title }}{% endblock %}
+{% block content %}
+  <h1>{{ review.title }}</h1>
+  <p class="date">
+    Published {{ review.publish }} by {{ review.author }}
+  </p>
+  {{ review.body|linebreaks }}
+{% endblock %}

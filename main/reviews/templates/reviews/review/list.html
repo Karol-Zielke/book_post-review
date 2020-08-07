@@ -1,10 +1,10 @@
 {% extends "reviews/base.html" %}
-{% block title %}My Blog{% endblock %}
+{% block title %}Your Reviews{% endblock %}
 {% block content %}
-  <h1>Your Reviews</h1>
+  <h1>Najnowsze recenzje</h1>
   {% for review in reviews %}
     <h2>
-      <a href="{{ post.get_absolute_url }}">
+      <a href="{{ review.get_absolute_url }}">
         {{ review.title }}
       </a>
     </h2>
