@@ -4,7 +4,7 @@ from .models import PostReview
 
 def review_list(request):
     reviews = PostReview.published.all()
-    return render(request, 'main/review/list.html', {'reviews': reviews})
+    return render(request, 'reviews/review/list.html', {'reviews': reviews})
 
 
 def single_review(request, year, month, day, review):
@@ -13,4 +13,4 @@ def single_review(request, year, month, day, review):
                                publish__year=year,
                                publish__month=month,
                                publish__day=day)
-    return render(request, 'main/review/detail.html', {'review': review})
+    return render(request, 'reviews/review/list.html', {'review': review})

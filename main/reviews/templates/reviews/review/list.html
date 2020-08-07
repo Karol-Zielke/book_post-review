@@ -1,0 +1,16 @@
+{% extends "reviews/base.html" %}
+{% block title %}My Blog{% endblock %}
+{% block content %}
+  <h1>Your Reviews</h1>
+  {% for review in reviews %}
+    <h2>
+      <a href="{{ post.get_absolute_url }}">
+        {{ review.title }}
+      </a>
+    </h2>
+    <p class="date">
+      Published {{ review.publish }} by {{ review.author }}
+    </p>
+    {{ review.body|truncatewords:30|linebreaks }}
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div id="sidebar">
+        <h2>Your Reviews</h2>
+        <p>Read & Review</p>
+    </div>
+
+</body>
+</html>

@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
-class PublishedManager(models.Model):
+class PublishedManager(models.Manager):
     def get_queryset(self):
-        return super(PublishedManager, self).get_queryset().filte(status='published')
+        return super(PublishedManager,
+                     self).get_queryset().filter(status='published')
 
 
 class PostReview(models.Model):
@@ -24,6 +26,12 @@ class PostReview(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     objects = models.Manager()
     published = PublishedManager()
+
+    def get_absolute_url(self):
+        return reverse('review:single_review',
+                       args=[self.publish.year,
+                             self.publish.month,
+                             self.publish.day, self.slug])
 
     class Meta:
         ordering = ('-publish',)
