@@ -12,5 +12,6 @@
       Published {{ review.publish }} by {{ review.author }}
     </p>
     {{ review.body|truncatewords:30|linebreaks }}
+  {% include "pagination.html" with page=reviews %}
   {% endfor %}
 {% endblock %}
